@@ -1,18 +1,16 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
-defineProps<{ msg: string }>();
-
-const count = ref(0);
+import { useProductStore } from "@/store/index";
+const productStore = useProductStore();
+productStore.fill();
 </script>
 
 <template>
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+  <div>
+    <ul>
+      <li v-for="(item, idx) in productStore.productList" :key="idx">
+        {{ item.name }}:{{ item.price }}
+      </li>
+    </ul>
   </div>
 </template>
 

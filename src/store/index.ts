@@ -1,20 +1,24 @@
 import { defineStore } from "pinia";
-
 interface State {
-  userList: UserInfo[];
-  user: UserInfo | null;
+  productList: ProductInfo[];
+  product: ProductInfo | null;
 }
 
-export const useUserStore = defineStore("user", {
+export const useProductStore = defineStore("ProductStore", {
   state: (): State => {
     return {
-      userList: [],
-      user: null,
+      productList: [],
+      product: null,
     };
+  },
+  actions: {
+    async fill() {
+      this.productList = (await import("@/data/data.json")).default;
+    },
   },
 });
 
-interface UserInfo {
+interface ProductInfo {
   name: string;
-  age: number;
+  price: number;
 }
