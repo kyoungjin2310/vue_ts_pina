@@ -1,7 +1,17 @@
 import { defineStore } from "pinia";
+
+interface ProductInfo {
+  name: string;
+  price: number;
+}
+
 interface State {
   productList: ProductInfo[];
   product: ProductInfo | null;
+}
+
+interface Counter {
+  counter: number;
 }
 
 export const useProductStore = defineStore("ProductStore", {
@@ -18,7 +28,20 @@ export const useProductStore = defineStore("ProductStore", {
   },
 });
 
-interface ProductInfo {
-  name: string;
-  price: number;
-}
+export const useCountStore = defineStore({
+  id: "counter",
+  state: (): Counter => ({
+    counter: 0,
+  }),
+  getters: {
+    doubleCount: (state) => state.counter * 2,
+  },
+  actions: {
+    increaseCount() {
+      this.counter++;
+    },
+    decreaseCount() {
+      this.counter--;
+    },
+  },
+});

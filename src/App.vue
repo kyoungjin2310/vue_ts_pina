@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from "@/components/HelloWorld.vue";
+import CountPinia from "@/components/CountPinia.vue";
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <CountPinia />
 </template>
 
 <style lang="scss" scoped>
