@@ -25,3 +25,9 @@ const minus = () => {
     <button @click.prevent="minus">minus</button>
   </div>
 </template>
+
+<style lang="scss" scoped>
+div {
+  background-color: skyblue;
+}
+</style>
